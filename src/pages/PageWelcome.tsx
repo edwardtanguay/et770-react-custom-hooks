@@ -1,5 +1,7 @@
+import { useFetch } from "../hooks/useFetch";
+
 export const PageWelcome = () => {
-	return (
-		<p>This is the welcome page.</p>
-	)
-}
+	const { items: skills } = useFetch("https://edwardtanguay.vercel.app/share/skills_with_id.json");
+
+	return <p>There are {skills.length} skills.</p>;
+};
