@@ -2,11 +2,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import "./index.scss";
-import { PageWelcome } from "./pages/PageWelcome.tsx";
 import { PageToggle } from "./pages/PageToggle.tsx";
 import { PageAbout } from "./pages/PageAbout.tsx";
 import { Page404 } from "./pages/Page404.tsx";
 import { PageLocalStorage } from "./pages/PageLocalStorage.tsx";
+import { PageFetch } from "./pages/PageFetch.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
 		element: <App />,
 		children: [
 			{
-				path: "/welcome",
-				element: <PageWelcome />,
+				path: "/fetch",
+				element: <PageFetch />,
 			},
 			{
 				path: "toggle",
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/",
-				element: <Navigate to="/welcome" replace />,
+				element: <Navigate to="/toggle" replace />,
 			},
 		],
 	},
