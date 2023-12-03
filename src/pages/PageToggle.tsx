@@ -1,6 +1,6 @@
 import { useToggle } from "../hooks/useToggle";
 
-export const PageInfo = () => {
+export const PageToggle = () => {
 	const [isOnline, toggleIsOnline] = useToggle();
 	const [isProcessing, toggleIsProcessing] = useToggle();
 	return (
