@@ -2,8 +2,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export const useFetch = (url:string) => {
-	const [items, setItems] = useState([]);
+export const useFetch = <T = unknown>(url:string) => {
+	const [items, setItems] = useState<T>([] as T);
 
 	useEffect(() => {
 		(async () => {
