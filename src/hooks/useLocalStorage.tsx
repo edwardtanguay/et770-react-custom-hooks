@@ -1,12 +1,20 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
 
-export const useLocalStorage = <T = unknown>(initialValue: T) => {
-	const [obj, setObj] = useState<T>(initialValue);
+export const useLocalStorage = (idCode: string, initialValue = "") => {
+	const [value, setValue] = useState(initialValue);
 
-	const save = () => {
-		const _obj = structuredClone(obj);
-		setObj(_obj);
-	}
+	useEffect(() => {
+		const _value = localStorage.getItem(idCode);
+		if (_value !== null) {
+			setValue(_value);
+		}
+	}, []);
 
-	return [obj, save];
-}
+	const save = (value: string) => {
+		setValue(value);
+		localStorage.setItem(idCode, value);
+	};
+
+	return { value, save };
+};
